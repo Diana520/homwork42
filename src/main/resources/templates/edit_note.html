@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Create note</title>
+<link rel="stylesheet" href="/styles/edit_note.css">
+</head>
+<body>
+ 
+	<h2>edit note</h2>
+	<form action="/notes/change" th:object="${note}" method="post">
+	<div><input th:field="*{id}"  hidden></div></div>
+	<div>
+	<input th:field="*{title}" type="text" ></div>
+	<div>
+	<p>
+	 <textarea th:field="*{message}"  ></textarea></div>
+	  <div><input th:field="*{date}" type="datetime" hidden ></div>
+	 
+	 <input type="submit" class="registerbtn" value = "apply">
+	
+	</form>
+</body>
+</html>

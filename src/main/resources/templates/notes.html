@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Notes list</title>
+<link rel="stylesheet" href="/styles/menu.css">
+</head>
+<body>
+	<h1>Notes list</h1>
+	<a href="/create">create new note</a>
+	 <form action="/notes/search">
+	 <input type="date" name = "date">
+	 </form>
+	 <div class="flex-container">
+	<div th:each="note: ${notes}">
+	<div class="flex-item" th:text="${note.id}"></div>
+	<div class="flex-item" th:text="${note.title}"></div>
+	<div class="flex-item" th:text="${note.message}"></div>
+	<div class="flex-item" th:text="${note.date}"></div>
+	<div>
+	<div><a th:href="@{/notes/{n}(n=${note.id})}">Info</a></div>
+	<div><a th:href="@{/notes/delete/{n}(n=${note.id})}">Delete</a></div>
+	<div><a th:href="@{/notes/edit/{n}(n=${note.id})}">Edit</a></div>
+	</div>
+	</div>
+	</div>
+	<div> <a href="/logout"> Logout </a></div>
+</body>
+</html>
